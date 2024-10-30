@@ -1,16 +1,16 @@
 import { BrowserRouter as Router, NavLink, Route, Routes } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Pages from './Components/Pages.tsx';
+import Admin from './Components/Admin.tsx';
 
 function App() {
 
 
   return (
     <Router>
-    <div className="container">
-      <nav className="navbar navbar-expand-lg navbar-light bg-light">
+    <div>
+      <nav className="p-3 navbar navbar-expand-lg navbar-light bg-light">
         <ul className="navbar-nav">
-          <NavLink className="navbar-brand" to="/">Home</NavLink>
           <li className="nav-item">
             <NavLink className="nav-link" to="/pages/about">About</NavLink>
           </li>
@@ -31,8 +31,8 @@ function App() {
 
       <div className="container">
       <Routes>
-        <Route path="/"/>
         <Route path="/pages/:pageName" element={<Pages/>}></Route>
+        <Route path="/pages/admin" element={<Admin/>}></Route>
       </Routes>
       </div>
     </div>

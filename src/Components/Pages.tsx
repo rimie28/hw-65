@@ -9,14 +9,13 @@ interface PageContent {
 
 const Pages = () => {
   const {pageName} = useParams<{pageName: string}>()
-  const [page, setPage] = useState<PageContent | null>(null)
+  const [page, setPage] = useState<PageContent>({title: '', content: ''})
 
   useEffect(() => {
     const fetchPageData = async () => {
       try {
         if(pageName) {
           const response = await getPageData(pageName);
-          console.log("Page data:", response.data);
           setPage(response.data);
         }
       } catch (error) {
@@ -28,9 +27,9 @@ const Pages = () => {
 
 
   return (
-    <div className="container">
-      <h3>{page?.title}</h3>
-      <h4>{page?.content}</h4>
+    <div className="container p-3">
+      <h3>{page.title}</h3>
+      <h4>{page.content}</h4>
     </div>
   )
 }
